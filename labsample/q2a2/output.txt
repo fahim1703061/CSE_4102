@@ -1,0 +1,9 @@
+UNIVERSITY -> University
+OF -> of
+UniversityName -> Dhaka
+UNIVERSITY -> University
+OF -> of
+UniversityName -> Rajshahi
+UNIVERSITY -> University
+OF -> of
+UniversityName -> Chittagong
