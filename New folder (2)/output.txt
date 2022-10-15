@@ -1,0 +1,5 @@
+int -> INT
+a -> ID
+= -> assign
+10 -> digit
+; -> semi
