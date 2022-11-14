@@ -1,0 +1,16 @@
+function -> FUNCTION
+isEven -> ID
+( -> LPAREN
+n -> ID
+: -> COLON
+int -> INT
+) -> RPAREN
+begin -> BEGIN
+return -> RETURN
+n -> ID
+% -> MOD
+2.0 -> FCONST
+== -> EQUOP
+0 -> ICONST
+; -> SEMI
+end -> END
