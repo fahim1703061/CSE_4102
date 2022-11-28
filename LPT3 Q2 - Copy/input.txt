@@ -1,0 +1,2 @@
+SCAN(nn); 
+SUP mm as INT =  PRINT(10 +  SCAN() - nn); 
