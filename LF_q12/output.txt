@@ -1,0 +1,434 @@
+In line no 5, Inserting a with type INT_TYPE in symbol table.
+In line no 7, Inserting b with type INT_TYPE in symbol table.
+In line no 9, Inserting i with type INT_TYPE in symbol table.
+In line no 48, Inserting j with type INT_TYPE in symbol table.
+Parsing finished!
+============= INTERMEDIATE CODE===============
+  0: start              -1
+  1: ld_var              0
+  2: ld_int              2
+  3: eq                  3
+  4: ld_var              1
+  5: ld_int              3
+  6: ld_var              0
+  7: add                -1
+  8: eq                  8
+  9: ld_var              2
+ 10: ld_int              0
+ 11: eq                 11
+ 12: ld_var              0
+ 13: ld_var              1
+ 14: lt                 14
+ 15: if_start           12
+ 16: ld_var              0
+ 17: ld_int              1
+ 18: add                -1
+ 19: ld_var              0
+ 20: ld_var              1
+ 21: eq                 21
+ 22: if_start           19
+ 23: ld_var              0
+ 24: ld_var              0
+ 25: ld_int              2
+ 26: add                -1
+ 27: eq                 27
+ 28: else_start         19
+ 29: ld_var              2
+ 30: ld_int              1
+ 31: add                -1
+ 32: else_end           19
+ 33: else_end           19
+ 34: else_end           12
+ 35: ld_var              0
+ 36: ld_int              0
+ 37: gt                 37
+ 38: if_start           35
+ 39: print_int_value     0
+ 40: else_end           35
+ 41: halt               -1
+============= ASM CODE===============
+
+;start -1
+.686
+.model flat, c
+include C:\masm32\include\msvcrt.inc
+includelib C:\masm32\lib\msvcrt.lib
+
+.stack 100h
+printf PROTO arg1:Ptr Byte, printlist:VARARG
+scanf PROTO arg2:Ptr Byte, inputlist:VARARG
+
+.data
+output_integer_msg_format byte "%d", 0Ah, 0
+output_string_msg_format byte "%s", 0Ah, 0
+input_integer_format byte "%d",0
+
+number sdword ?
+
+.code
+
+main proc
+	push ebp
+	mov ebp, esp
+	sub ebp, 100
+	mov ebx, ebp
+	add ebx, 4
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 2
+	mov eax, 2
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;eq 3
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	je LS3
+	mov dword ptr [ebx], 0
+	jmp LE3
+	LS3: mov dword ptr [ebx], 1
+	LE3: add ebx, 4
+
+
+
+;ld_var 1
+	mov eax, [ebp-4]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 3
+	mov eax, 3
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;add -1
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	add eax, edx
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;eq 8
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	je LS8
+	mov dword ptr [ebx], 0
+	jmp LE8
+	LS8: mov dword ptr [ebx], 1
+	LE8: add ebx, 4
+
+
+
+;ld_var 2
+	mov eax, [ebp-8]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 0
+	mov eax, 0
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;eq 11
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	je LS11
+	mov dword ptr [ebx], 0
+	jmp LE11
+	LS11: mov dword ptr [ebx], 1
+	LE11: add ebx, 4
+
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_var 1
+	mov eax, [ebp-4]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;lt 14
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	jl LS14
+	mov dword ptr [ebx], 0
+	jmp LE14
+	LS14: mov dword ptr [ebx], 1
+	LE14: add ebx, 4
+
+
+
+;if_start 12
+	mov eax, [ebx-4]
+	cmp eax, 0
+	jle ELSE_START_LABEL_12
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 1
+	mov eax, 1
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;add -1
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	add eax, edx
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_var 1
+	mov eax, [ebp-4]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;eq 21
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	je LS21
+	mov dword ptr [ebx], 0
+	jmp LE21
+	LS21: mov dword ptr [ebx], 1
+	LE21: add ebx, 4
+
+
+
+;if_start 19
+	mov eax, [ebx-4]
+	cmp eax, 0
+	jle ELSE_START_LABEL_19
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 2
+	mov eax, 2
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;add -1
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	add eax, edx
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;eq 27
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	je LS27
+	mov dword ptr [ebx], 0
+	jmp LE27
+	LS27: mov dword ptr [ebx], 1
+	LE27: add ebx, 4
+
+
+
+;else_start 19
+	jmp ELSE_END_LABEL_19
+ELSE_START_LABEL_19:
+
+
+;ld_var 2
+	mov eax, [ebp-8]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 1
+	mov eax, 1
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;add -1
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	add eax, edx
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;else_end 19
+ELSE_END_LABEL_19:
+
+
+;else_end 19
+ELSE_END_LABEL_19:
+
+
+;else_end 12
+ELSE_END_LABEL_12:
+
+
+;ld_var 0
+	mov eax, [ebp-0]
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;ld_int 0
+	mov eax, 0
+	mov dword ptr [ebx], eax
+	add ebx, 4
+
+
+;gt 37
+	sub ebx, 4
+	mov eax, [ebx]
+	sub ebx, 4
+	mov edx, [ebx]
+	cmp edx, eax
+	jg LS37
+	mov dword ptr [ebx], 0
+	jmp LE37
+	LS37: mov dword ptr [ebx], 1
+	LE37: add ebx, 4
+
+
+
+;if_start 35
+	mov eax, [ebx-4]
+	cmp eax, 0
+	jle ELSE_START_LABEL_35
+
+
+;print_int_value 0
+	push eax
+	push ebx
+	push ecx
+	push edx
+	push [ebp-12]
+	push [ebp-8]
+	push [ebp-4]
+	push [ebp-0]
+	push [ebp+4]
+	push [ebp+8]
+	push [ebp+12]
+	push [ebp+16]
+	push [ebp+20]
+	push [ebp+24]
+	push [ebp+28]
+	push [ebp+32]
+	push [ebp+36]
+	push [ebp+40]
+	push [ebp+44]
+	push [ebp+48]
+	push [ebp+52]
+	push [ebp+56]
+	push [ebp+60]
+	push [ebp+64]
+	push ebp
+	mov eax, [ebp-0]
+	INVOKE printf, ADDR output_integer_msg_format, eax
+	pop ebp
+	pop [ebp+64]
+	pop [ebp+60]
+	pop [ebp+56]
+	pop [ebp+52]
+	pop [ebp+48]
+	pop [ebp+44]
+	pop [ebp+40]
+	pop [ebp+36]
+	pop [ebp+32]
+	pop [ebp+28]
+	pop [ebp+24]
+	pop [ebp+20]
+	pop [ebp+16]
+	pop [ebp+12]
+	pop [ebp+8]
+	pop [ebp+4]
+	pop [ebp-0]
+	pop [ebp-4]
+	pop [ebp-8]
+	pop [ebp-12]
+	pop edx
+	pop ecx
+	pop ebx
+	pop eax
+
+;else_end 35
+ELSE_END_LABEL_35:
+
+
+;halt -1
+	add ebp, 100
+	mov esp, ebp
+	pop ebp
+	ret
+main endp
+end
